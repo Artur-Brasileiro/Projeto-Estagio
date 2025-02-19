@@ -5176,11 +5176,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programação\\Projetos C#\\Projeto Estágio 2\\back-end\\back-end.csproj",
+      "projectUniqueName": "D:\\Programação\\Projetos GitHub\\Projeto-Estagio\\back-end\\back-end.csproj",
       "projectName": "back-end",
-      "projectPath": "D:\\Programação\\Projetos C#\\Projeto Estágio 2\\back-end\\back-end.csproj",
+      "projectPath": "D:\\Programação\\Projetos GitHub\\Projeto-Estagio\\back-end\\back-end.csproj",
       "packagesPath": "C:\\Users\\artur\\.nuget\\packages\\",
-      "outputPath": "D:\\Programação\\Projetos C#\\Projeto Estágio 2\\back-end\\obj\\",
+      "outputPath": "D:\\Programação\\Projetos GitHub\\Projeto-Estagio\\back-end\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\artur\\AppData\\Roaming\\NuGet\\NuGet.Config"
