@@ -1,0 +1,43 @@
+<div class="actions">
+    <button mat-raised-button color="primary" (click)="adicionarTransacao()">Adicionar Transação</button>
+    <button mat-raised-button color="accent" (click)="irPessoas()">Pessoas</button>
+</div>
+  
+<div class="table-container">
+    <table mat-table [dataSource]="transacoes" class="mat-elevation-z8">
+      <!-- Coluna ID -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let transacao"> {{ transacao.id }} </td>
+      </ng-container>
+  
+      <!-- Coluna Descrição -->
+      <ng-container matColumnDef="descricao">
+        <th mat-header-cell *matHeaderCellDef> Descrição </th>
+        <td mat-cell *matCellDef="let transacao"> {{ transacao.descricao }} </td>
+      </ng-container>
+  
+      <!-- Coluna Valor -->
+      <ng-container matColumnDef="valor">
+        <th mat-header-cell *matHeaderCellDef> Valor </th>
+        <td mat-cell *matCellDef="let transacao"> {{ transacao.valor | currency:'BRL':'symbol':'1.2-2' }} </td>
+      </ng-container>
+  
+      <!-- Coluna Tipo -->
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let transacao">
+          {{ transacao.tipo === 1 ? 'Receita' : 'Despesa' }}
+        </td>
+      </ng-container>
+  
+      <!-- Coluna IdPessoa -->
+      <ng-container matColumnDef="idPessoa">
+        <th mat-header-cell *matHeaderCellDef> Pessoa </th>
+        <td mat-cell *matCellDef="let transacao"> {{ transacao.idPessoa }} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+</div>

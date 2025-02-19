@@ -1,0 +1,13 @@
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  
+  .table-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 16px;
+}

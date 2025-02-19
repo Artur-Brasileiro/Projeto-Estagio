@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResponseModel } from '../models/response.model';
 import { Pessoa } from '../models/pessoa.model';
+import { TotalDto } from '../models/total.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,13 @@ export class PessoaService {
 
   excluir(idPessoa: number): Observable<ResponseModel<Pessoa>> {
     return this.http.delete<ResponseModel<Pessoa>>(`${this.apiUrl}/Excluir/${idPessoa}`);
+  }
+
+  consultarTotal(): Observable<ResponseModel<TotalDto[]>> {
+    return this.http.get<ResponseModel<TotalDto[]>>(`${this.apiUrl}/ConsultarTotal`);
+  }
+
+  buscarPorId(id: number): Observable<ResponseModel<Pessoa>> {
+    return this.http.get<ResponseModel<Pessoa>>(`${this.apiUrl}/BuscarPorId/${id}`);
   }
 }

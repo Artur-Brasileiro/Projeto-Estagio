@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace back_end.Dto
 {
+    // Classe usada para retornar dados de maneira personalizada no ResponseModel
     public class TotalDto
     {
         public string Nome { get; set; }

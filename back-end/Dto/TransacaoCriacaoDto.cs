@@ -6,6 +6,7 @@ using back_end.Enums;
 
 namespace back_end.Dto
 {
+    // Classe usada para criar uma nova Transacao (Nem todos os dados são relevantes, por isso uma DTO).
     public class TransacaoCriacaoDto
     {
         public string Descricao { get; set; }

@@ -1,0 +1,11 @@
+.container-cadastro {
+    max-width: 800px; /* mesma largura máxima da tabela */
+    margin: 20px auto; /* centraliza horizontalmente e adiciona margem superior/inferior */
+    padding: 0 16px;   /* espaçamento interno, se necessário */
+}
+
+.buttons {
+display: flex;
+gap: 10px; /* Adiciona 10px de espaço entre os botões */
+margin-top: 10px;
+}

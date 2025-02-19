@@ -1,0 +1,13 @@
+.table-container {
+    max-width: 800px; /* Limita a largura máxima */
+    margin: 20px auto; /* Centraliza horizontalmente e adiciona margem superior/inferior */
+    padding: 0 16px;   /* Espaçamento horizontal interno, se necessário */
+}
+
+.actions {
+    display: flex;
+    gap: 10px;       /* Espaçamento de 10px entre os botões */
+    margin-bottom: 20px;  /* Espaçamento abaixo do bloco de botões */
+    margin-top: 20px;
+    justify-content: center; /* Centraliza os botões, se desejar */
+}

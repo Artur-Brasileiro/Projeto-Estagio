@@ -11,12 +11,16 @@ namespace back_end.Services.Transacao
 {
     public class TransacaoService : ITransacaoInterface
     {
+        // Criação do context para acessar o banco de daods.
         private readonly AppDbContext context;
 
         public TransacaoService(AppDbContext Context)
         {
             context = Context;
         }
+
+        // Todos as comunicações com o banco de dados receberão o "await".
+        // A variável de retorno sempre retornará ReponseModel<TransacaoModel>, por isso sempre será feito a "conversão" de TabelaTransacao para TransacaoModel.
 
         public async Task<ResponseModel<TransacaoModel>> Criar(TransacaoCriacaoDto transacaoCriacaoDto)
         {

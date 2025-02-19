@@ -1,0 +1,34 @@
+<div class="actions">
+    <button mat-raised-button color="primary" (click)="voltar()">Voltar</button>
+  </div>
+  
+  <div class="table-container">
+    <table mat-table [dataSource]="totalData" class="mat-elevation-z8">
+      <!-- Coluna Nome -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let total"> {{ total.nome }} </td>
+      </ng-container>
+  
+      <!-- Coluna Total de Receitas -->
+      <ng-container matColumnDef="totalReceitas">
+        <th mat-header-cell *matHeaderCellDef> Receitas </th>
+        <td mat-cell *matCellDef="let total"> {{ total.totalReceitas | currency:'BRL':'symbol':'1.2-2' }} </td>
+      </ng-container>
+  
+      <!-- Coluna Total de Despesas -->
+      <ng-container matColumnDef="totalDespesas">
+        <th mat-header-cell *matHeaderCellDef> Despesas </th>
+        <td mat-cell *matCellDef="let total"> {{ total.totalDespesas | currency:'BRL':'symbol':'1.2-2' }} </td>
+      </ng-container>
+  
+      <!-- Coluna Saldo -->
+      <ng-container matColumnDef="saldo">
+        <th mat-header-cell *matHeaderCellDef> Saldo </th>
+        <td mat-cell *matCellDef="let total"> {{ total.saldo | currency:'BRL':'symbol':'1.2-2' }} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+</div>
