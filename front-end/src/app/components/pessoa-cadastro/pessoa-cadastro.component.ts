@@ -25,6 +25,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./pessoa-cadastro.component.css']
 })
 export class PessoaCadastroComponent implements OnInit {
+  // Declaração do formulário de cadastro.
+  // ! indica que a variável será inicializada depois.
   cadastroForm!: FormGroup;
 
   constructor(
@@ -34,6 +36,7 @@ export class PessoaCadastroComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Inicializa o formulário com os campos e validações.
     this.cadastroForm = this.fb.group({
       nome: ['', Validators.required],
       dataNascimento: ['', Validators.required]
@@ -46,7 +49,7 @@ export class PessoaCadastroComponent implements OnInit {
       this.pessoaService.criar(novaPessoa).subscribe({
         next: (resposta) => {
           console.log('Pessoa criada com sucesso:', resposta);
-          // Após criar, redirecione para a lista de pessoas
+          // Após criar, redireciona para a lista de pessoas.
           this.router.navigate(['']);
         },
         error: (erro) => {
@@ -56,8 +59,8 @@ export class PessoaCadastroComponent implements OnInit {
     }
   }
 
+  // Navega de volta para a tela de listagem.
   cancelar(): void {
-    // Navega de volta para a tela de listagem (rota raiz)
     this.router.navigate(['']);
   }
 }

@@ -24,9 +24,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./transacao-cadastro.component.css']
 })
 export class TransacaoCadastroComponent implements OnInit {
+  // Declaração do formulário de cadastro.
+  // ! indica que a variável será inicializada depois.
   cadastroForm!: FormGroup;
 
-  // Ajuste os tipos para refletir os valores do enum: Receita = 1, Despesa = 2
+  // Tipos de transação: Receita e Despesa.
   tipos = [
     { value: 1, viewValue: 'Receita' },
     { value: 2, viewValue: 'Despesa' }
@@ -35,24 +37,28 @@ export class TransacaoCadastroComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private transacaoService: TransacaoService,
-    private pessoaService: PessoaService, // Injetando o serviço de pessoa
+    private pessoaService: PessoaService, 
     private router: Router
   ) {}
 
+  // Método chamado quando o componente é inicializado.
   ngOnInit(): void {
+    // Inicializa o formulário com os campos e validações.
     this.cadastroForm = this.fb.group({
       descricao: ['', Validators.required],
       valor: [null, [Validators.required, Validators.min(0)]],
       tipo: [null, Validators.required],
-      idPessoa: [null, Validators.required] // Id da pessoa associada à transação
+      idPessoa: [null, Validators.required] 
     });
   }
 
+  // Método chamado ao submeter o formulário.
   onSubmit(): void {
     if (this.cadastroForm.valid) {
       const novaTransacao = this.cadastroForm.value;
       
-      // Verifica os dados da pessoa através do endpoint BuscarPorId
+      // Lógica de validação: se a pessoa for menor de 18 anos, não pode ter receita.
+      // Vamos recuperar os dados da pessoa através do endpoint BuscarPorId.
       this.pessoaService.buscarPorId(novaTransacao.idPessoa).subscribe({
         next: (response) => {
           const pessoa = response.dados;
@@ -61,7 +67,7 @@ export class TransacaoCadastroComponent implements OnInit {
             alert("Para pessoas menores de 18 anos, apenas despesas são permitidas.");
             return;
           }
-          // Se a validação passar, envia a transação
+          // Se a validação passar, envia a transação.
           this.transacaoService.criar(novaTransacao).subscribe({
             next: (resposta) => {
               console.log('Transação criada com sucesso:', resposta);
@@ -79,7 +85,8 @@ export class TransacaoCadastroComponent implements OnInit {
       });
     }
   }
-
+  
+  // Método chamado ao cancelar o cadastro
   cancelar(): void {
     // Volta para a tela de transações
     this.router.navigate(['transacoes']);

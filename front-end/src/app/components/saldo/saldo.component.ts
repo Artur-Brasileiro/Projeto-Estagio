@@ -14,7 +14,11 @@ import { TotalDto } from '../../models/total.model';
   styleUrls: ['./saldo.component.css']
 })
 export class SaldoComponent implements OnInit {
+
+  // Array para armazenar os dados de saldo.
   totalData: TotalDto[] = [];
+
+  // Colunas a serem exibidas na tabela.
   displayedColumns: string[] = ['nome', 'totalReceitas', 'totalDespesas', 'saldo'];
 
   constructor(
@@ -22,14 +26,17 @@ export class SaldoComponent implements OnInit {
     private router: Router
   ) {}
 
+  // Método chamado quando o componente é inicializado.
   ngOnInit(): void {
     this.consultarTotal();
   }
 
+  // Consulta o total de receitas, despesas e saldo.
   consultarTotal(): void {
     this.pessoaService.consultarTotal().subscribe({
       next: (resposta) => {
-        // Aqui, a resposta deve conter a propriedade "dados" que é um array de TotalDto
+
+        // Atribui os dados da resposta ao array totalData.
         this.totalData = resposta.dados;
       },
       error: (erro) => {
@@ -38,6 +45,7 @@ export class SaldoComponent implements OnInit {
     });
   }
 
+  // Navega de volta para a tela anterior
   voltar(): void {
     this.router.navigate(['']);
   }

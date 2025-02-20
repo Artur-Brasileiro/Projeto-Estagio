@@ -14,7 +14,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./transacoes.component.css']
 })
 export class TransacoesComponent implements OnInit {
+
+  // Array para armazenar a lista de transações.
   transacoes: Transacao[] = [];
+
+  // Colunas a serem exibidas na tabela.
   displayedColumns: string[] = ['id', 'descricao', 'valor', 'tipo', 'idPessoa'];
 
   constructor(
@@ -22,14 +26,15 @@ export class TransacoesComponent implements OnInit {
     private router: Router
   ) {}
 
+  // Método chamado quando o componente é inicializado.
   ngOnInit(): void {
     this.carregarTransacoes();
   }
 
+  // Carrega a lista de transações do serviço.
   carregarTransacoes(): void {
     this.transacaoService.listar().subscribe({
       next: (resposta) => {
-        // Aqui você pode ajustar conforme o formato da resposta do back-end
         this.transacoes = resposta.dados;
       },
       error: (erro) => {
@@ -38,14 +43,13 @@ export class TransacoesComponent implements OnInit {
     });
   }
 
+  // Navega para a tela de cadastro de transações.
   adicionarTransacao(): void {
-    // Navega para a tela de cadastro de transações.
-    // Certifique-se de criar o componente e a rota "transacao-cadastro"
     this.router.navigate(['transacao-cadastro']);
   }
 
+  // Navega de volta para a tela de listagem de pessoas.
   irPessoas(): void {
-    // Navega de volta para a tela de listagem de pessoas (rota raiz)
     this.router.navigate(['']);
   }
 }

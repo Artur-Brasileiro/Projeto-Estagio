@@ -15,20 +15,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./pessoa.component.css']
 })
 export class PessoaComponent implements OnInit {
+
+  // Array para armazenar a lista de pessoas.
   pessoas: Pessoa[] = [];
+
+  // Colunas a serem exibidas na tabela.
   displayedColumns: string[] = ['id', 'nome', 'idade', 'acoes'];
 
   constructor(private pessoaService: PessoaService, private router: Router) {}
 
-    ngOnInit(): void {
-      this.carregarPessoas();
-    }
+  // Método chamado quando o componente é inicializado.
+  ngOnInit(): void {
+    this.carregarPessoas();
+  }
 
+  // Carrega a lista de pessoas do serviço.
   carregarPessoas(): void {
     this.pessoaService.listar().subscribe({
       next: (resposta) => {
+
+        // Console feito para teste do código.
         console.log('Resposta da API:', resposta);
-        // Atribui os dados sem verificar a propriedade 'sucesso'
+
+        // Atribui os dados sem verificar a propriedade 'sucesso'.
         this.pessoas = resposta.dados;
       },
       error: (erro) => {
@@ -37,11 +46,13 @@ export class PessoaComponent implements OnInit {
     });
   }
 
+  // Exclui uma pessoa pelo ID.
   excluirPessoa(id: number): void {
     if (confirm('Tem certeza que deseja excluir esta pessoa?')) {
       this.pessoaService.excluir(id).subscribe({
         next: () => {
-          // Atualiza o array removendo a pessoa com o id correspondente
+
+          // Atualiza o array removendo a pessoa com o id correspondente.
           this.pessoas = this.pessoas.filter(pessoa => pessoa.id !== id);
         },
         error: (erro) => {
@@ -51,14 +62,17 @@ export class PessoaComponent implements OnInit {
     }
   }
 
+  // Navega para a tela de cadastro de nova pessoa.
   adicionarPessoa(): void {
-    // Navega para a tela de cadastro
     this.router.navigate(['cadastro']);
   }
 
+  // Navega para a tela de transações.
   irTransacoes(): void {
     this.router.navigate(['transacoes']);
   }
+
+  // Navega para a tela de saldo.
   verSaldo(): void {
     this.router.navigate(['saldo']);
   }

@@ -102,7 +102,7 @@
 
 
 
-## Referências:
+## Referências Bibliograficas:
     Back-end:
         https://www.nuget.org/
     
@@ -110,7 +110,6 @@
         https://v17.angular.io/start
         https://material.angular.io/components/categories
         https://consolelog.com.br/aprenda-o-basico-do-angular-em-alguns-minutos/
-        https://www.youtube.com/playlist?list=PLTESsx8-vfPnQ-s4jM-jGrYQMOVg7t1u6
         https://youtu.be/uqkuoZfKxDI?si=tl9vdHx5HfmO63es
         https://youtu.be/rjrQpMYtTUw?si=oLFdNew2GVfdggjg
 

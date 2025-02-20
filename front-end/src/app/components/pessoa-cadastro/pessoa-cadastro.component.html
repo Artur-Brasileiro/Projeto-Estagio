@@ -1,11 +1,17 @@
 <div class="container-cadastro">
     <h2>Cadastro de Pessoa</h2>
+
+    <!-- Formulário de cadastro de pessoa -->
     <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+
+      <!-- Campo para inserir o nome -->
       <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Nome</mat-label>
         <input matInput formControlName="nome" placeholder="Digite o nome" required>
       </mat-form-field>
       <br>
+
+      <!-- Campo para inserir a data de nascimento -->
       <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Data de Nascimento</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="dataNascimento" placeholder="Escolha a data" required>
@@ -13,8 +19,14 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <br>
+
+      <!-- Botões de ação -->
       <div class="buttons">
+
+        <!-- Botão para salvar o cadastro -->
         <button mat-raised-button color="primary" type="submit">Salvar</button>
+
+        <!-- Botão para cancelar o cadastro -->
         <button mat-raised-button color="warn" type="button" (click)="cancelar()">Cancelar</button>
       </div>
     </form>

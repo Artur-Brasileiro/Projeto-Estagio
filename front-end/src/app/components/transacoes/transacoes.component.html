@@ -1,10 +1,16 @@
 <div class="actions">
+
+    <!-- Botão para adicionar uma nova transação -->
     <button mat-raised-button color="primary" (click)="adicionarTransacao()">Adicionar Transação</button>
+
+    <!-- Botão para navegar para a página de pessoas -->
     <button mat-raised-button color="accent" (click)="irPessoas()">Pessoas</button>
 </div>
   
 <div class="table-container">
+    <!-- Tabela para exibir a lista de transações -->
     <table mat-table [dataSource]="transacoes" class="mat-elevation-z8">
+
       <!-- Coluna ID -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -37,6 +43,7 @@
         <td mat-cell *matCellDef="let transacao"> {{ transacao.idPessoa }} </td>
       </ng-container>
   
+      <!-- Definição das linhas da tabela -->
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
